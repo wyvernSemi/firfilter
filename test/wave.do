@@ -26,10 +26,12 @@ add wave -noupdate -expand -group fir /tb/fir_i/smpls
 add wave -noupdate -expand -group fir {/tb/fir_i/smplsvalid[126]}
 add wave -noupdate -expand -group fir -radix decimal /tb/fir_i/accum
 add wave -noupdate -expand -group fir /tb/fir_i/idx
+add wave -noupdate -expand -group fir /tb/fir_i/lastcycle
 add wave -noupdate -expand -group fir /tb/fir_i/opvalid
 add wave -noupdate -expand -group fir -format Analog-Interpolated -height 74 -max 2047.0 -min -430.0 -radix decimal /tb/fir_i/out
+add wave -noupdate /tb/out
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1440000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {96040084 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -45,4 +47,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {210 us}
+WaveRestoreZoom {195449138 ps} {200239520 ps}
