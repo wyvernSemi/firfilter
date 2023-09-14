@@ -75,7 +75,7 @@ reg signed  [SMPL_BITS:0]      tapval;
 reg signed  [SMPL_BITS-1:0]    validsample;
 
 // Accumulated result
-reg signed  [SMPL_BITS*2-1:0]  accum;
+reg signed  [SMPL_BITS*2:0]    accum;
 
 integer                        idx;
 
@@ -97,7 +97,7 @@ begin
     count                      <= 0;
     countdlyd                  <= 0;
     rdtap                      <= 1'b0;
-    lastcycle                   <= 1'b0;
+    lastcycle                  <= 1'b0;
     accum                      <= 0;
   end
   else
@@ -166,7 +166,7 @@ begin
     if (lastcycle)
     begin
       // Rescale output using accum top bits, rounded
-      out                      <= accum[SMPL_BITS*2-1:SMPL_BITS-1] + accum[SMPL_BITS-2];
+      out                      <= accum[SMPL_BITS*2:SMPL_BITS+1] + accum[SMPL_BITS];
       opvalid                  <= 1'b1;
     end
   end
