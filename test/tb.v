@@ -48,7 +48,7 @@
 // Defines
 // -----------------------------------------------------------------------------
 `ifndef TAPSFNAME
-`define TAPSFNAME "tap127x12.hex"
+`define TAPSFNAME "taps.hex"
 `endif
 
 // =============================================================================
@@ -112,7 +112,7 @@ wire [SMPL_BITS-1:0]           out;
 // Generate a reset for 10 cycles
 assign nreset                  = (count  < 10) ? 1'b0 : 1'b1;
 
-// The next samplevaid pulse is ever int_smpl_period clocks (when not resetting)
+// The next samplevalid pulse is ever int_smpl_period clocks (when not resetting)
 assign nextsmplvalid           = (count % int_smpl_period == 0) ? nreset : 1'b0;
 
 // The sample input signal is either an impulse (if IP_FREQ_KHZ is 0) or 
